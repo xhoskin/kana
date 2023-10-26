@@ -17,14 +17,14 @@ export class KanaService {
         ['a',  'i',  'u',  'e',  'o' ],
         ['ka', 'ki', 'ku', 'ke', 'ko'],
         ['sa', 'si', 'su', 'se', 'so'],
-        ['ta', 'ti', 'tu', 'te', 'to'],
+        ['ta', 'chi','tsu','te', 'to'],
         ['na', 'ni', 'nu', 'ne', 'no'],
         ['ha', 'hi', 'hu', 'he', 'ho'],
         ['ma', 'mi', 'mu', 'me', 'mo'],
         ['ya', null, 'yu', null, 'yo'],
         ['ra', 'ri', 'ru', 're', 'ro'],
-        ['wa', null, null, null, 'o' ],
-        ['N',  null, null, null, null],
+        ['wa', null, null, null, 'wo' ],
+        ['n',  null, null, null, null],
     ];
 
     public getRandomSymbol(): KanaSymbolType {

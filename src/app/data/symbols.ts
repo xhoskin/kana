@@ -82,12 +82,12 @@ export const symbols: Array<KanaSymbolType> = [
         "katakana": "タ"
     },
     {
-        "reading": "ti",
+        "reading": "chi",
         "hiragana": "ち",
         "katakana": "チ"
     },
     {
-        "reading": "tu",
+        "reading": "tsu",
         "hiragana": "つ",
         "katakana": "ツ"
     },
@@ -222,12 +222,12 @@ export const symbols: Array<KanaSymbolType> = [
         "katakana": "ワ"
     },
     {
-        "reading": "o",
-        "hiragana": "お",
-        "katakana": "オ"
+        "reading": "wo",
+        "hiragana": "を",
+        "katakana": "ヲ"
     },
     {
-        "reading": "N",
+        "reading": "n",
         "hiragana": "ん",
         "katakana": "ン"
     }
