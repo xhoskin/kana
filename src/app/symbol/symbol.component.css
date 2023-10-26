@@ -1,0 +1,10 @@
+button {
+    width: 30px;
+    height: 30px;
+}
+
+:host([size="L"]) button {
+    font-size: 32px;
+    width: 64px;
+    height: 64px;
+}
