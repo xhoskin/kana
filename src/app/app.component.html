@@ -4,17 +4,12 @@
 
 <h1 [class.hidden]="answer === null">{{answer ? 'Верно': 'Не верно'}}</h1>
 
-<div *ngFor="let row of layout">
-    <span *ngFor="let reading of row">
-        <ng-container *ngIf="reading else empty">
-            <kana-symbol
-                [reading]="reading"
-                (clicked)="checkAnswer($event)"
-                alphabet="katakana"
-            ></kana-symbol>
-        </ng-container>
-        <ng-template #empty>
-
-        </ng-template>
+<div *ngFor="let row of layout" class="row">
+    <span *ngFor="let reading of row" class="cell">
+        <kana-symbol
+            [reading]="reading"
+            (clicked)="checkAnswer($event)"
+            alphabet="katakana"
+        ></kana-symbol>
     </span>
 </div>

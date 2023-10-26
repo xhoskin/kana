@@ -1,6 +1,5 @@
-button {
-    width: 30px;
-    height: 30px;
+:host {
+    vertical-align: top;
 }
 
 :host([size="L"]) button {
@@ -9,6 +8,12 @@ button {
     height: 64px;
 }
 
-:host {
-    vertical-align: top;
+.item {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.hidden {
+    visibility: hidden;
 }

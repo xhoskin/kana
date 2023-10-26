@@ -1,3 +1,7 @@
-<button type="button" (click)="clicked.emit(reading!)" [title]="reading">
-    {{reading ? this.getKana(reading) : ''}}
+<button *ngIf="reading else empty" type="button" class="item" (click)="clicked.emit(reading!)" [title]="reading">
+    {{this.getKana(reading)}}
 </button>
+
+<ng-template #empty>
+    <span class="item hidden"></span>
+</ng-template>
