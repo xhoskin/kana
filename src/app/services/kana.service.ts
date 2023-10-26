@@ -8,7 +8,9 @@ import { symbols } from '../data/symbols';
 })
 export class KanaService {
 
-    public symbols: Array<KanaSymbolType> = symbols;
+    public symbols: Map<string, KanaSymbolType> = new Map(
+        symbols.map(symbol => [symbol.reading, symbol])
+    );
 
     public katakana: AlphabetType = new Map([
         ['', ['ア', 'イ', 'ウ', 'エ', 'オ']],
@@ -72,29 +74,11 @@ export class KanaService {
     }
 
     public getHiragana(reading: string): string {
-        let col, row: string;
-        if (reading.length === 1) {
-            row = '';
-            col = reading[0];
-        } else {
-            row = reading[0];
-            col = reading[1];
-        }
-        const colIndex: number = this.colIndex[col]
-        return (this.hiragana.get(row) || '')[colIndex];
+        return this.getSymbol(reading).hiragana;
     }
 
     public getKatakana(reading: string): string {
-        let col, row: string;
-        if (reading.length === 1) {
-            row = '';
-            col = reading[0];
-        } else {
-            row = reading[0];
-            col = reading[1];
-        }
-        const colIndex: number = this.colIndex[col]
-        return (this.katakana.get(row) || '')[colIndex];
+        return this.getSymbol(reading).katakana;
     }
 
     private populateReadings(): void {
@@ -114,18 +98,17 @@ export class KanaService {
             .map((push: Array<string>) => {
                 push.forEach(symbol => this.readings.push(symbol));
             });
-
-        this.symbols = this.readings.map((reading): KanaSymbolType => {
-            return {
-                reading,
-                hiragana: this.getHiragana(reading),
-                katakana: this.getKatakana(reading),
-            }
-        });
-        console.log(this.symbols);
     }
 
     public getKeys(map: AlphabetType): Array<string> {
         return Array.from(map.keys());
+    }
+
+    getSymbol(reading: string): KanaSymbolType {
+        const result: KanaSymbolType = this.symbols.get(reading)!;
+        if (!result) {
+            throw new Error(`Cannot find symbol with this reading: ${reading}`);
+        }
+        return result;
     }
 }
