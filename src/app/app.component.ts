@@ -8,22 +8,29 @@ import { Layout } from './types/layout.type';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-    public question: string;
+    public question: string = '';
     public answer: boolean | null = null;
     public layout: Layout;
+    public animateAnswer: boolean = false;
 
     constructor(
         public kana: KanaService,
     ) {
-        this.question = this.kana.getRandomReading();
         this.layout = this.kana.layout;
+        this.updateQuestion();
+    }
+
+    public updateQuestion() {
+        this.answer = null;
+        this.question = this.kana.getRandomReading();
     }
 
     public checkAnswer(answer: string) {
         this.answer = this.question === answer;
-        setTimeout(() => {
-            this.answer = null;
-        }, 2000)
+        this.animateAnswer = false;
+        setTimeout(() => { this.animateAnswer = true; }, 0);
+        if (this.answer) {
+            this.updateQuestion();
+        }
     }
 }

@@ -3,7 +3,7 @@
 }
 
 .hidden {
-    visibility: hidden;
+    opacity: 0;
 }
 
 .row {
@@ -13,4 +13,17 @@
 .cell {
     display: flex;
     padding: 3px;
+}
+
+.pop-out {
+    animation: pop-out 2s ease-out;
+}
+
+@keyframes pop-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
