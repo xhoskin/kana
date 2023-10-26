@@ -1,16 +1,20 @@
 <div class="large-symbol">
-    <kana-symbol size="L" [symbol]="questionKana"></kana-symbol>
+    <kana-symbol size="L" [reading]="question" alphabet="hiragana"></kana-symbol>
 </div>
+
+<h1 [class.hidden]="answer === null">{{answer ? 'Верно': 'Не верно'}}</h1>
 
 <div *ngFor="let row of layout">
     <span *ngFor="let reading of row">
         <ng-container *ngIf="reading else empty">
-            <kana-symbol [symbol]="kana.getKatakana(reading)"></kana-symbol>
+            <kana-symbol
+                [reading]="reading"
+                (clicked)="checkAnswer($event)"
+                alphabet="katakana"
+            ></kana-symbol>
         </ng-container>
         <ng-template #empty>
-            <kana-symbol></kana-symbol>
+
         </ng-template>
     </span>
 </div>
-
-<h1>{{answer ? 'Верно': 'Не верно'}}</h1>

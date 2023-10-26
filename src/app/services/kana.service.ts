@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { KanaSymbolType } from '../types/kana-symbol.type';
 import { symbols } from '../data/symbols';
 import { Layout } from '../types/layout.type';
+import { AlphabetType } from '../types/alphabet.type';
 
 @Injectable({
     providedIn: 'root'
@@ -30,8 +31,8 @@ export class KanaService {
         return this.symbolsArray[this.getRandomInt(this.symbolsArray.length - 1)];
     }
 
-    public getRandomHiragana(): string {
-        return this.getHiragana(this.getRandomSymbol().reading);
+    public getRandomReading(): string {
+        return this.getRandomSymbol().reading;
     }
 
     private getRandomInt(max: number) {
@@ -44,6 +45,13 @@ export class KanaService {
 
     public getKatakana(reading: string): string {
         return this.getSymbol(reading).katakana;
+    }
+
+    public getKana(reading: string, alphabet: AlphabetType): string {
+        if (alphabet === 'hiragana') {
+            return this.getHiragana(reading);
+        }
+        return this.getKatakana(reading);
     }
 
     getSymbol(reading: string): KanaSymbolType {

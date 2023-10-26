@@ -9,19 +9,21 @@ import { Layout } from './types/layout.type';
 })
 export class AppComponent {
 
-    public questionKana: string;
-    public answer: boolean = false;
+    public question: string;
+    public answer: boolean | null = null;
     public layout: Layout;
 
     constructor(
         public kana: KanaService,
     ) {
-        console.log(this.kana.getHiragana('a'));
-        this.questionKana = this.kana.getRandomHiragana();
+        this.question = this.kana.getRandomReading();
         this.layout = this.kana.layout;
     }
 
     public checkAnswer(answer: string) {
-        this.answer = this.questionKana === answer;
+        this.answer = this.question === answer;
+        setTimeout(() => {
+            this.answer = null;
+        }, 2000)
     }
 }

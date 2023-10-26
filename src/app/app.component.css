@@ -1,3 +1,7 @@
 .large-symbol {
     margin-bottom: 24px;
 }
+
+.hidden {
+    visibility: hidden;
+}
