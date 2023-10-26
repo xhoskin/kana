@@ -9,5 +9,5 @@ export class SymbolComponent {
     @Input() public alphabet: 'hiragana' | 'katakana' = 'hiragana';
     @Input() public symbol: string = '';
     @Input() public size: 'M'|'L' = 'M';
-    
+
 }

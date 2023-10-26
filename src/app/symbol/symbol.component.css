@@ -8,3 +8,7 @@ button {
     width: 64px;
     height: 64px;
 }
+
+:host {
+    vertical-align: top;
+}
