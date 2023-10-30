@@ -6,8 +6,15 @@
     opacity: 0;
 }
 
+.layout {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
 .row {
     display: flex;
+    flex-direction: column;
 }
 
 .cell {

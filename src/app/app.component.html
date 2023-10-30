@@ -2,7 +2,8 @@
     <kana-symbol size="L" [reading]="question" alphabet="hiragana"></kana-symbol>
 </div>
 <h1 class="hidden" [class.pop-out]="animateAnswer">{{answer ? 'Верно': 'Не верно'}}</h1>
-<div *ngFor="let row of layout" class="row">
+<section class="layout">
+    <div *ngFor="let row of layout" class="row">
     <span *ngFor="let reading of row" class="cell">
         <kana-symbol
             [reading]="reading"
@@ -10,4 +11,5 @@
             alphabet="katakana"
         ></kana-symbol>
     </span>
-</div>
+    </div>
+</section>
