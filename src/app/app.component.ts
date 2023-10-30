@@ -13,6 +13,7 @@ export class AppComponent {
     public layout: Layout;
     public animateAnswer: boolean = false;
     public score: number = -1;
+    public readonly WIN_SCORE = 30;
 
     constructor(
         public kana: KanaService,
@@ -24,6 +25,9 @@ export class AppComponent {
     public updateQuestion() {
         this.question = this.kana.getRandomReading();
         this.score++;
+        if (this.score === this.WIN_SCORE) {
+            window.location.replace("https://www.youtube.com/watch?v=4DxeiPYwHAg");
+        }
     }
 
     public checkAnswer(answer: string) {
