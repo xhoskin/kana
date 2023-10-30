@@ -1,7 +1,18 @@
-<div class="large-symbol">
-    <kana-symbol size="L" [reading]="question" alphabet="hiragana"></kana-symbol>
-</div>
-<h1 class="hidden" [class.pop-out]="animateAnswer">{{answer ? 'Верно': 'Не верно'}}</h1>
+<section class="question">
+    <div class="question-symbol large-symbol">
+        <kana-symbol size="L" [reading]="question" alphabet="hiragana"></kana-symbol>
+    </div>
+    <div class="answer hidden" [ngSwitch]="answer" [class.pop-out]="animateAnswer">
+        <svg *ngSwitchCase="true" class="answer-icon check-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 24 24">
+            <path d="M19.3 5.3 9 15.6l-4.3-4.3-1.4 1.4 5 5 .7.7.7-.7 11-11-1.4-1.4z"/>
+        </svg>
+        <svg *ngSwitchDefault class="answer-icon cross-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+             xml:space="preserve" viewBox="0 0 24 24">
+            <path d="M5.6 4.2 4.2 5.6l6.4 6.4-6.4 6.4 1.4 1.4 6.4-6.4 6.4 6.4 1.4-1.4-6.4-6.4 6.4-6.4-1.4-1.4-6.4 6.4-6.4-6.4z"/>
+        </svg>
+    </div>
+</section>
+
 <section class="layout">
     <div *ngFor="let row of layout" class="row">
     <span *ngFor="let reading of row" class="cell">

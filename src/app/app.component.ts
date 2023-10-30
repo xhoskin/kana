@@ -21,7 +21,6 @@ export class AppComponent {
     }
 
     public updateQuestion() {
-        this.answer = null;
         this.question = this.kana.getRandomReading();
     }
 

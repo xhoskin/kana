@@ -1,9 +1,16 @@
-.large-symbol {
-    margin-bottom: 24px;
-}
-
 .hidden {
     opacity: 0;
+}
+
+.question {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-left: 100px;
+}
+
+.answer {
+    margin-left: 20px;
 }
 
 .layout {
@@ -33,4 +40,21 @@
     100% {
         opacity: 0;
     }
+}
+
+.answer-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.answer-icon path {
+    fill: currentColor;
+}
+
+.check-icon {
+    color: forestgreen;
+}
+
+.cross-icon {
+    color: firebrick;
 }
