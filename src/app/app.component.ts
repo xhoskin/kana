@@ -12,6 +12,7 @@ export class AppComponent {
     public answer: boolean | null = null;
     public layout: Layout;
     public animateAnswer: boolean = false;
+    public score: number = -1;
 
     constructor(
         public kana: KanaService,
@@ -22,6 +23,7 @@ export class AppComponent {
 
     public updateQuestion() {
         this.question = this.kana.getRandomReading();
+        this.score++;
     }
 
     public checkAnswer(answer: string) {
@@ -30,6 +32,8 @@ export class AppComponent {
         setTimeout(() => { this.animateAnswer = true; }, 0);
         if (this.answer) {
             this.updateQuestion();
+        } else {
+            this.score = 0;
         }
     }
 }

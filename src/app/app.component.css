@@ -1,3 +1,9 @@
+:host {
+    display: block;
+    width: 400px;
+    position: relative;
+}
+
 .hidden {
     opacity: 0;
 }
@@ -6,7 +12,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 24px;
-    margin-left: 100px;
 }
 
 .answer {
@@ -57,4 +62,12 @@
 
 .cross-icon {
     color: firebrick;
+}
+
+.score {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    font-face: monospace;
 }
