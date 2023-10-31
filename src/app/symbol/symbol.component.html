@@ -1,4 +1,4 @@
-<button *ngIf="reading else empty" type="button" class="item" (click)="clicked.emit(reading!)" [title]="reading">
+<button *ngIf="reading else empty" type="button" class="item" (click)="clicked.emit(reading!)" [title]="title">
     {{this.getKana(reading)}}
 </button>
 

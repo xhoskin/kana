@@ -1,6 +1,6 @@
 <section class="question">
     <div class="question-symbol large-symbol">
-        <kana-symbol size="L" [reading]="question" alphabet="hiragana"></kana-symbol>
+        <kana-symbol size="L" [reading]="question" [showTitle]="false" alphabet="hiragana"></kana-symbol>
     </div>
     <div class="answer hidden" [ngSwitch]="answer" [class.pop-out]="animateAnswer">
         <svg *ngSwitchCase="true" class="answer-icon check-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 24 24">

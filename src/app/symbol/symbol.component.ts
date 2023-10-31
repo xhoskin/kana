@@ -11,8 +11,13 @@ export class SymbolComponent {
     @Input() public alphabet: AlphabetType = 'hiragana';
     @Input() public reading: string | null = null;
     @Input() public size: 'M'|'L' = 'M';
+    @Input() public showTitle: boolean = true;
 
     @Output() public clicked: EventEmitter<string> = new EventEmitter<string>();
+
+    get title(): string {
+        return this.showTitle ? this.reading || '' : '';
+    }
 
     constructor(
         private kana: KanaService
