@@ -60,10 +60,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "katakana:build:production"
+                          "buildTarget": "katakana:build:production"
                         },
                         "development": {
-                            "browserTarget": "katakana:build:development"
+                          "buildTarget": "katakana:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "katakana:build"
+                      "buildTarget": "katakana:build"
                     }
                 },
                 "test": {
